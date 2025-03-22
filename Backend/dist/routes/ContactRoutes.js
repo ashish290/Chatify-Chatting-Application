@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ContactRoutes = void 0;
+const express_1 = require("express");
+const controllers_1 = require("../controllers");
+const CommonAuth_1 = require("../middleware/CommonAuth");
+const router = (0, express_1.Router)();
+exports.ContactRoutes = router;
+router.post('/search', CommonAuth_1.Authenticate, controllers_1.SearchContacts);
+router.get('/getContacts', CommonAuth_1.Authenticate, controllers_1.getContactDMList);
+router.get('/getallContacts', CommonAuth_1.Authenticate, controllers_1.getAllContacts);

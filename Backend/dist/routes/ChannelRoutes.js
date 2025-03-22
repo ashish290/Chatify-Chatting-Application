@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ChannelRoutes = void 0;
+const express_1 = require("express");
+const CommonAuth_1 = require("../middleware/CommonAuth");
+const ChannelController_1 = require("../controllers/ChannelController");
+const router = (0, express_1.Router)();
+exports.ChannelRoutes = router;
+router.post('/channel', CommonAuth_1.Authenticate, ChannelController_1.CreateChannel);
+router.get('/user-channels', CommonAuth_1.Authenticate, ChannelController_1.getUserChannels);
+router.get('/get-channel-messages/:channelId', CommonAuth_1.Authenticate, ChannelController_1.getChannelMessages);
